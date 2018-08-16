@@ -7,9 +7,9 @@ import ImageController from "./components/image/image-controller.js";
 class app {
   constructor() {
     this.controllers = {
-      weatherController: new WeatherController()
-      quoteController: new QuoteController()
-      todoController: new TodoController()
+      weatherController: new WeatherController(),
+      quoteController: new QuoteController(),
+      todoController: new TodoController(),
       imageController: new ImageController()
     }
   }
