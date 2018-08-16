@@ -4,7 +4,7 @@ const apiUrl = url + encodeURIComponent(url2);
 
 
 const imgApi = axios.create({
-	baseURL: apiUrl,
+	baseURL: 'http://www.splashbase.co/api/v1/images/random',
 	timeout: 3000
 });
 
