@@ -1,6 +1,6 @@
 const url = '//bcw-getter.herokuapp.com/?url=';
 const url2 = 'http://www.splashbase.co/api/v1/images/random'
-const apiUrl = '//bcw-getter.herokuapp.com/?url=' + encodeURIComponent('http://www.splashbase.co/api/v1/images/random');
+const apiUrl = url + encodeURIComponent(url2);
 
 
 const imgApi = axios.create({
