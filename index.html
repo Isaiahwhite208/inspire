@@ -4,30 +4,38 @@
 	<meta charset="UTF-8">
 	<title>IW-Spire</title>
 	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	 crossorigin="anonymous">
 </head>
 
+
 <body id="body">
-	<div id="weather">
-		Your Weather Template
+	<div>
+		<div id="background">
+
+			<div id="weather" class="d-flex flex-row-reverse">
+
+			</div>
+
+
+			<div id="todo">
+				<form onsubmit=""></form>
+				A Todo List
+			</div>
+
+			<div id="quote" class="text-center push-bottom">
+
+			</div>
+
+
+
+		</div>
 	</div>
-
-	<div id="quote">
-		The Quote
-	</div>
-
-	<div id="todo">
-		<form onsubmit=""></form>
-		A Todo List
-	</div>
-
-
-
-
 	<!--JS Libraries-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
 	<!--Initialize App-->
 
-	<script type='module' src="app/main.js"></script>
+	<script src="app/main.js" type='module'></script>
 </body>
 
 </html>
