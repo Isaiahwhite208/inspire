@@ -17,7 +17,8 @@ export default class TodoService {
 	getTodos(draw) {
 		console.log("Getting the Todo List")
 		todoApi.get('')
-			.then((res) => { // <-- WHY IS THIS IMPORTANT????
+			.then((res) => {
+				let todo = res. // <-- WHY IS THIS IMPORTANT????
 
 			})
 			.catch(logError)
@@ -46,9 +47,12 @@ export default class TodoService {
 			.catch(logError)
 	}
 
-	removeTodo() {
+	removeTodo(todo) {
 		// Umm this one is on you to write.... The method is a DELETE
+		todoApi.delete('', todo)
 
+
+			.catch(logError)
 	}
 
 }
