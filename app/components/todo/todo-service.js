@@ -9,13 +9,11 @@ function logError(e) {
 	console.log(e)
 }
 
-
 let todoList = []
 
 export default class TodoService {
 
 	getTodos(draw) {
-		// console.log("Getting the Todo List")
 		todoApi.get('')
 			.then((res) => {
 				console.log(res.data.data)
@@ -31,7 +29,6 @@ export default class TodoService {
 			.then(function (res) { // <-- WHAT DO YOU DO AFTER CREATING A NEW TODO?
 				todoList.push(res)
 				callback(res)
-
 			})
 			.catch(logError)
 	}

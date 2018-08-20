@@ -10,7 +10,6 @@ const weatherApi = axios.create({
 export default class WeatherService {
 
 	getWeather(callWhenDone) {
-		// console.log('Calling the Weatherman')
 		weatherApi().then(function (res) {
 			localStorage.setItem('weather', JSON.stringify(res.data))
 			// HEY FUN FACT 

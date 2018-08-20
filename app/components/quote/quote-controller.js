@@ -3,7 +3,8 @@ import QuoteService from "./quote-service.js";
 let qs = new QuoteService
 
 function drawQuote(res) {
-	document.getElementById('quote').innerHTML = `
+	document.getElementById('quote').innerHTML =
+		`
 	<p class="quote">${res.quote}</p>
 	<p class="author">-${res.author}</p>
 	`
