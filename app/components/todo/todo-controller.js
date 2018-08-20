@@ -1,8 +1,8 @@
 import TodoService from "./todo-service.js";
 
 
-
 var todoService = new TodoService
+
 
 // Use this getTodos function as your callback for all other edits
 function getTodos() {
@@ -13,13 +13,43 @@ function getTodos() {
 function draw(todos) {
 	//WHAT IS MY PURPOSE?
 	//BUILD YOUR TODO TEMPLATE HERE
-	var template = ''
+	var template = `
+	<div class="row">
+	<form onsubmit="app.controllers.todoController.addTodoFromForm(event)" class="input-group input-group-m m-4">
+  <input type="text" placeholder="New To Do" name="todo">
+  <div>
+    <button class="btn btn-outline-warning" type="submit">Submit</button>
+  </div>
+</form>
+	</div>
+	`
+	todos.forEach(todo => {
+		let completed = todo.completed
+		if (completed === false) {
+			template += `
+			<input type="checkbox" id="${todo.description}" onchange="app.controllers.todoController.toggleTodoStatus('${todo._id}')" />
+			<label for="${todo.description}">${todo.description}<i onclick="app.controllers.todoController.removeTodo('${todo._id}')"> Remove</i></label>
+			<br>
+			`
+		}
+		else {
+			template += `
+			<input type="checkbox" id="${todo.description}" onchange="app.controllers.todoController.toggleTodoStatus('${todo._id}')" checked/>
+			<label for="${todo.description}" >${todo.description}<i onclick="app.controllers.todoController.removeTodo('${todo._id}')"> Remove</i></label>
+		<br>
+			`
+		}
+	})
+
+	document.getElementById('todo').innerHTML = template
 	//DONT FORGET TO LOOP
 }
 
 
 export default class TodoController {
 	constructor() {
+		getTodos()
+
 		// IF YOU WANT YOUR TODO LIST TO DRAW WHEN THE PAGE FIRST LOADS WHAT SHOULD YOU CALL HERE???
 	}
 	// You will need four methods
@@ -36,6 +66,7 @@ export default class TodoController {
 		var form = e.target
 		var todo = {
 			// DONT FORGET TO BUILD YOUR TODO OBJECT
+			description: form.todo.value
 		}
 
 		//PASSES THE NEW TODO TO YOUR SERVICE
@@ -53,7 +84,7 @@ export default class TodoController {
 
 	removeTodo(todoId) {
 		// ask the service to run the remove todo with this id
-
+		todoService.removeTodo(todoId, getTodos)
 		// ^^^^ THIS LINE OF CODE PROBABLY LOOKS VERY SIMILAR TO THE toggleTodoStatus
 	}
 
